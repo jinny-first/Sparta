@@ -11,13 +11,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Ajax_JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
     <!--부트스트랩-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -30,60 +30,8 @@
 
     <script>
         function order() {
-            let name_val = $('#nameinput').val();
-            let option_val = $('#optioninput').val();
-            let address_val = $('#addressinput').val();
-            let phone_val = $('#phoneinput').val();
-
-            if (name_val == '') {
-                alert('이름을 입력해 주세요!');
-                $('#nameinput').focus()
-                return
-            } else if (option_val == '') {
-                alert('옵션을 선택해 주세요!');
-                $('#inputGroupSelect01').focus()
-                return
-            } else if (address_val == '') {
-                alert('주소를 입력해주세요!');
-                $('#addressinput').focus()
-                return
-            } else if (phone_val == '') {
-                alert('번호를 입력해주세요!');
-                $('#phoneinput').focus()
-                return
-            } else {
-                alert('Completed!');
-            }
+            alert('Your order has been completed!');
         }
-
-
-
-        $(document).ready(function () {
-
-
-
-            $.ajax({
-                type: "GET",
-                url: "https://api.manana.kr/exchange/rate.json",
-                data: {},
-                success: function (response) {
-                    let ex_list = response[1]
-                    for (let i = 0; i < response.length; i++) {
-                        if (response[i]["name"] == 'USDKRW=X') {
-                            $('#exchange').text(response[i]["rate"]);
-                            return;
-                        }
-                    }
-
-                }
-            })
-
-
-
-
-        });
-
-
     </script>
 
 
@@ -94,12 +42,12 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://outofstock.co.kr/upload/item/4092/15610897981636306.jpg"
+                    <img class="d-block w-100"
+                        src="https://outofstock.co.kr/upload/item/4092/15610897981636306.jpg"
                         alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100"
-                        src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/70088478_154427712491490_7796367701143594246_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=A7JGNf7AlKAAX9jydDb&oh=fd186c48177be90dd6abb43784d54f3c&oe=5EE705AC"
+                    <img class="d-block w-100" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/70088478_154427712491490_7796367701143594246_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=A7JGNf7AlKAAX9jydDb&oh=fd186c48177be90dd6abb43784d54f3c&oe=5EE705AC"
                         alt="Second slide">
                 </div>
             </div>
@@ -119,9 +67,6 @@
             배송되는 제품 특성상 실시간 재고, 가격변동이 있을 수 있습니다.
         </div>
 
-        <div class="exchangeresult">∙ 원/달러 환율 :
-            <span id="exchange">~</span></div>
-
         <div class="title_center">주문하기
         </div>
         <div class="input">
@@ -129,15 +74,15 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
                 </div>
-                <input id="nameinput" type="text" class="form-control" aria-label="Default"
+                <input type="text" class="form-control" aria-label="Default"
                     aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Count</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
                 </div>
-                <select class="custom-select" id="optioninput">
-                    <option selected value>Choose...</option>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -147,20 +92,20 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
                 </div>
-                <input id=addressinput type="text" class="form-control" aria-label="Default"
+                <input type="text" class="form-control" aria-label="Default"
                     aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
                 </div>
-                <input id=phoneinput type="text" class="form-control" aria-label="Default"
+                <input type="text" class="form-control" aria-label="Default"
                     aria-describedby="inputGroup-sizing-default">
             </div>
 
         </div>
         <div class="button1">
-            <button id="orderbtn" onclick='order()' type="button" class="btn btn-dark btn-lg">Order</button>
+            <button onclick='order()' type="button" class="btn btn-dark btn-lg">Order</button>
         </div>
     </div>
 </body>
