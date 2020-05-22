@@ -12,6 +12,12 @@
         div.question-box {
             margin: 10px 0 20px 0;
         }
+
+        .warning {
+            color : red;
+            background-color: white;
+        }
+
     </style>
 
     <script>
@@ -24,9 +30,16 @@
                 success: function (response) {
                     // 값 중 도봉구의 미세먼지 값만 가져와보기
                     let dobong = response["RealtimeCityAir"]["row"];
-                    let gu_name = dobong['MSRSTE_NM'];
-                    let gu_mise = dobong['IDEX_MVL'];
-                    console.log(gu_name, gu_mise);
+                    for (let i = 0; i < mise_list.length; i++) {
+                        let gu_name = mise_list[i][MSRSTE_NM];
+                        let mise_value = mise_list[i][IDEX_MVL];
+                        if html =''
+                        if (mise_value >= 65) {
+                            let temp_html = `<li class="warning">${gu-name} : ${mise_value}
+                        }
+                        let temp_html = `<li>${gu_name} : ${mise_value}</li>`
+                        $('#names-q1').append(temp_html);
+                    }
                 }
             })
         }

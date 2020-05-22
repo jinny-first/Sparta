@@ -1,0 +1,48 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.title_head {
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.wrapper {
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.carousel-item {
+    height: 500px;
+}
+
+.title_head { display: inline-block;}
+
+.title_sub {display: inline-block;
+padding-left: 60px;
+color: coral;
+font-weight:600;}
+
+.content {
+    margin-top: 20px;
+}
+
+.title_center {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.input{
+    width: 700px;
+}
+
+.exchangeresult{
+    margin-top: 30px;
+    font-size: 16px;
+    color: coral;
+}
